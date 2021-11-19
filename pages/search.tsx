@@ -55,7 +55,7 @@ function AnimationSearch({}): JSX.Element {
           ) : (
             <>
               {" "}
-              <div className=" absolute  w-screen inset-0 flex  flex-wrap text-center items-center justify-center h-86 text-bold text-black mt-32 ">
+              <div className=" absolute -my-32 t-0  w-screen h-screen inset-0 flex  flex-wrap text-center items-center justify-center  text-bold text-black ">
                 <Error message="No data with this tag!" />
               </div>
             </>

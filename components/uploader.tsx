@@ -178,7 +178,8 @@ const Uploader = (props: any) => {
                               key={index}
                               className="flex flex-rows justify-center items-center text-xs mr-2 bg-gray-100 py-1 px-3 my-1 rounded-full"
                             >
-                              {tag} <XIcon className="h-3 w-3 ml-1" />
+                              {tag}
+                              {/* <XIcon className="h-3 w-3 ml-1" /> */}
                             </div>
                           ))}{" "}
                         </>

@@ -29,6 +29,7 @@ const Header: FC = () => {
          * ** */
         alert("Please search with atleat 3 letters!");
       } else {
+        UpdateSearchInput("");
         Router.push(`/search?tag=${SearchInput}`);
       }
     }
