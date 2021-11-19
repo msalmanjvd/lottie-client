@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-
+import Head from "next/head";
 import UploaderComponent from "./../components/uploader";
 import LottiePlayer from "./../components/lottie-player";
 import FileReader from "./../utility/fileReader";
@@ -72,90 +72,94 @@ const Upload = () => {
   };
 
   return (
-    <div className="absolute inset-0 h-full w-screen  md:mt-14   flex items-center justify-center item-center  h-full">
-      {Loading ? (
-        <>
-          <div className="flex items-center w-screen flex-wrap text-center items-center justify-center h-50 text-bold text-black mt-100 ">
-            <Loader />
-          </div>
-        </>
-      ) : (
-        <>
-          {Uploader ? (
-            <>
-              {" "}
-              <div
-                id="uploader"
-                className="absolute h-screen w-full inset-0 z-20 bg-white"
-              >
-                <div className="fixed inset-0 h-20 z-30 bg-gray-50 w-full">
-                  <button
-                    style={{ left: "50px", top: "20px" }}
-                    className="relative flex flex-row items-center z-50   text-gray-400 top-3   hover:bg-gray-200  rounded-full border border-transparent px-5 leading-loose"
-                    onClick={() => UpdateUploader(!Uploader)}
-                  >
-                    <ArrowLeftIcon className="h-5 mr-1" />
-                    <span className="text-bold"> Back</span>
-                  </button>
-                </div>
-                <div className="relative w-full">
-                  <UploaderComponent
-                    data={LottieJson}
-                    updateData={UpdateLottieJson}
-                    url={FileUrl}
-                  />
-                </div>
-              </div>
-            </>
-          ) : (
-            <>
-              {Error ? (
-                <>
-                  <div className="relative flex flex-col items-center  justify-center content-center bg-gray-100 h-screen  h-screen w-full    ">
+    <>
+      <Head>
+        <title> Upload Animation</title>
+      </Head>{" "}
+      <div className="absolute inset-0 h-full w-screen  md:mt-14   flex items-center justify-center item-center  h-full">
+        {Loading ? (
+          <>
+            <div className="flex items-center w-screen flex-wrap text-center items-center justify-center h-50 text-bold text-black mt-100 ">
+              <Loader />
+            </div>
+          </>
+        ) : (
+          <>
+            {Uploader ? (
+              <>
+                <div
+                  id="uploader"
+                  className="absolute h-screen w-full inset-0 z-20 bg-white"
+                >
+                  <div className="fixed inset-0 h-20 z-30 bg-gray-50 w-full">
                     <button
-                      className="mb-5 cursor-pointer font-bold"
-                      onClick={() => UpdateError(false)}
+                      style={{ left: "50px", top: "20px" }}
+                      className="relative flex flex-row items-center z-50   text-gray-400 top-3   hover:bg-gray-200  rounded-full border border-transparent px-5 leading-loose"
+                      onClick={() => UpdateUploader(!Uploader)}
                     >
-                      Close
+                      <ArrowLeftIcon className="h-5 mr-1" />
+                      <span className="text-bold"> Back</span>
                     </button>
-                    <div className="md:w-1/3">
-                      {" "}
-                      <ErrorPage message="File is not Lottie fomrated!" />
-                    </div>
                   </div>
-                </>
-              ) : (
-                <>
-                  <div className="relative flex flex-row flex-wrap  justify-center content-center items-center h-screen">
-                    <LottiePlayer
-                      src={UplaodLottie}
-                      height="200px"
-                      autoplay={true}
-                      loop={true}
-                      bgColor="transparent"
+                  <div className="relative w-full">
+                    <UploaderComponent
+                      data={LottieJson}
+                      updateData={UpdateLottieJson}
+                      url={FileUrl}
                     />
-                    <input
-                      id="file"
-                      type="file"
-                      accept=".json"
-                      required
-                      style={{ display: "none" }}
-                      onChange={HandleChange}
-                    ></input>
-                    <button
-                      className="bg-main text-white w-56 transition duration-500 ease-in-out   hover:scale-110  rounded-full border border-gray  leading-loose"
-                      onClick={() => UplaodFile()}
-                    >
-                      <span className="text-bold"> Upload New</span>
-                    </button>
-                  </div>{" "}
-                </>
-              )}
-            </>
-          )}
-        </>
-      )}
-    </div>
+                  </div>
+                </div>
+              </>
+            ) : (
+              <>
+                {Error ? (
+                  <>
+                    <div className="relative flex flex-col items-center  justify-center content-center bg-gray-100 h-screen  h-screen w-full    ">
+                      <button
+                        className="mb-5 cursor-pointer font-bold"
+                        onClick={() => UpdateError(false)}
+                      >
+                        Close
+                      </button>
+                      <div className="md:w-1/3">
+                        {" "}
+                        <ErrorPage message="File is not Lottie fomrated!" />
+                      </div>
+                    </div>
+                  </>
+                ) : (
+                  <>
+                    <div className="relative flex flex-row flex-wrap  justify-center content-center items-center h-screen">
+                      <LottiePlayer
+                        src={UplaodLottie}
+                        height="200px"
+                        autoplay={true}
+                        loop={true}
+                        bgColor="transparent"
+                      />
+                      <input
+                        id="file"
+                        type="file"
+                        accept=".json"
+                        required
+                        style={{ display: "none" }}
+                        onChange={HandleChange}
+                      ></input>
+                      <button
+                        className="bg-main text-white w-56 transition duration-500 ease-in-out   hover:scale-110  rounded-full border border-gray  leading-loose"
+                        onClick={() => UplaodFile()}
+                      >
+                        <span className="text-bold"> Upload New</span>
+                      </button>
+                    </div>{" "}
+                  </>
+                )}
+              </>
+            )}
+          </>
+        )}
+      </div>
+    </>
   );
 };
 

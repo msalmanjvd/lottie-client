@@ -1,6 +1,7 @@
 import { useRouter } from "next/router";
 import { useQuery } from "@apollo/client";
 import Loader from "./../components/loader";
+import Head from "next/head";
 
 import AnimationsGrid from "../components/animations-grid";
 import Error from "./../components/error";
@@ -42,20 +43,25 @@ function AnimationSearch({}): JSX.Element {
    */
   if (data) {
     return (
-      <div className="absolute mt-32 h-screen w-screen -inset-x-0 z-1  sm:left-0  p-5 bg-gray-100 my-50   ">
-        {data.getAnimationByTag ? (
-          <>
-            <AnimationsGrid animations={data.getAnimationByTag} />
-          </>
-        ) : (
-          <>
-            {" "}
-            <div className=" absolute  w-screen inset-0 flex  flex-wrap text-center items-center justify-center h-86 text-bold text-black mt-32 ">
-              <Error message="No data with this tag!" />
-            </div>
-          </>
-        )}
-      </div>
+      <>
+        <Head>
+          <title> {tag}</title>
+        </Head>
+        <div className="absolute mt-32 h-screen w-screen -inset-x-0 z-1  sm:left-0  p-5 bg-gray-100 my-50   ">
+          {data.getAnimationByTag ? (
+            <>
+              <AnimationsGrid animations={data.getAnimationByTag} />
+            </>
+          ) : (
+            <>
+              {" "}
+              <div className=" absolute  w-screen inset-0 flex  flex-wrap text-center items-center justify-center h-86 text-bold text-black mt-32 ">
+                <Error message="No data with this tag!" />
+              </div>
+            </>
+          )}
+        </div>
+      </>
     );
   }
   /**

@@ -1,10 +1,14 @@
 import type { NextPage } from "next";
+import Head from "next/head";
 import Link from "next/link";
 import { Player, Controls } from "@lottiefiles/react-lottie-player";
 
 const CommingSoon: NextPage = () => {
   return (
     <div className="  h-screen w-screen  flex justify-center align-center items-center">
+      <Head>
+        <title> Comming Soon</title>
+      </Head>
       <div className="flex flex-col flex-1 justify-center align-center items-center justify-items-center content-center">
         {" "}
         <Player

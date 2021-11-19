@@ -1,6 +1,7 @@
 import { useState, useEffect, FunctionComponent as FC } from "react";
 import { useRouter } from "next/router";
 import Image from "next/image";
+import Head from "next/head";
 import { useQuery } from "@apollo/client";
 import { SketchPicker } from "react-color";
 import { CirclePicker } from "react-color";
@@ -224,6 +225,9 @@ const AnimationPost = () => {
   if (data) {
     return (
       <>
+        <Head>
+          <title>Animatin {id}</title>
+        </Head>
         {AnimationData ? (
           <>
             <div className="fixed   h-14 z-40 w-screen shadow-sm bg-white bg-white">

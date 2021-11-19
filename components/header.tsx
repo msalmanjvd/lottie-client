@@ -2,6 +2,7 @@ import { FunctionComponent as FC, useState, useEffect } from "react";
 import { SearchIcon } from "@heroicons/react/outline";
 import Link from "next/link";
 import Image from "next/image";
+
 import { useRouter } from "next/router";
 import { useContext } from "react";
 import GlobalContext from "../config/global-context";
@@ -13,7 +14,7 @@ const Header: FC = () => {
   const LottieLogo =
     "https://static.lottiefiles.com/images/v3/lottiefiles-logo.svg";
 
-  const msg = useContext(GlobalContext);
+  const userInfo = useContext(GlobalContext);
   const [SearchInput, UpdateSearchInput] = useState("");
 
   /**
@@ -57,15 +58,18 @@ const Header: FC = () => {
           <input
             id="search-bar"
             placeholder="Search "
-            className="relative z-10 pl-10 ml-8 sm:pl-12 focus:outline-none focus:ring focus:border-green-100   w-38 mr-5 sm:w-64 -ml-5 rounded-full border border-gray-100 bg-gray-50 leading-loose sm:px-5"
+            className="relative z-10 pl-10 ml-8 sm:pl-12 focus:outline-none focus:ring focus:border-main   w-38 mr-5 sm:w-64 -ml-5 rounded-full border border-gray-100 bg-gray-50 leading-loose sm:px-5"
             type="text"
             value={SearchInput}
             onChange={(e) => UpdateSearchInput(e.target.value)}
             onKeyDown={searchHanler}
           />
         </div>
-        <div className="flex flex-row hidden sm:flex items-center ml-10">
-          <a href="/users/1" className="flex items-center">
+        <div className="flex flex-row hidden sm:flex items-center ml-10 cursor-pointer">
+          <div
+            onClick={() => Router.push("/users/1")}
+            className="flex items-center"
+          >
             <Image
               className="bg-green-400 rounded-full"
               loader={() => src}
@@ -74,8 +78,8 @@ const Header: FC = () => {
               height={35}
               alt="salman"
             />
-            <p className="pr-5 ml-2 font-thin">{msg.name}</p>
-          </a>
+            <p className="pr-5 ml-2 font-thin">{userInfo.name}</p>
+          </div>
         </div>
       </div>
     </div>

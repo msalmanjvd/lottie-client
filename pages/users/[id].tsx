@@ -1,7 +1,7 @@
 import type { NextPage } from "next";
 import { useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
-import Post from "../../components/post";
+import Head from "next/head";
 import UserCard from "../../components/user-card";
 import Loader from "../../components/loader";
 import AnimationsGrid from "../../components/animations-grid";
@@ -33,22 +33,27 @@ const Profile: NextPage = () => {
 
   if (true) {
     return (
-      <div className="absolute mt-36">
-        {data.getAnimationByUserId.length ? (
-          <>
-            <UserCard />{" "}
-            <div className="mt-10">
-              <AnimationsGrid animations={data.getAnimationByUserId} />
-            </div>
-          </>
-        ) : (
-          <>
-            <div className="relative">
-              <ErrorPage />
-            </div>
-          </>
-        )}
-      </div>
+      <>
+        <Head>
+          <title>Proifle {id}</title>
+        </Head>
+        <div className="absolute mt-36">
+          {data.getAnimationByUserId.length ? (
+            <>
+              <UserCard />{" "}
+              <div className="mt-10">
+                <AnimationsGrid animations={data.getAnimationByUserId} />
+              </div>
+            </>
+          ) : (
+            <>
+              <div className="relative">
+                <ErrorPage />
+              </div>
+            </>
+          )}
+        </div>
+      </>
     );
   }
 };

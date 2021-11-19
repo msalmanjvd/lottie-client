@@ -1,5 +1,5 @@
 import type { NextPage } from "next";
-
+import Head from "next/head";
 import client from "../libs/apollo";
 import Loader from "./../components/loader";
 
@@ -67,9 +67,14 @@ type AnimationData = {
 };
 const Home = ({ animations }: AnimationData): JSX.Element => {
   return (
-    <div className="absolute inset-0 p-0 m-0 w-screen sm:mt-40">
-      <AnimationsGrid animations={animations} />
-    </div>
+    <>
+      <Head>
+        <title> Lottiefiles</title>
+      </Head>
+      <div className="absolute inset-0 p-0 m-0 w-screen sm:mt-40">
+        <AnimationsGrid animations={animations} />
+      </div>
+    </>
   );
 };
 
