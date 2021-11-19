@@ -11,7 +11,7 @@ import { AllAnimations } from "../queries/index";
  * @returns all aniamtions and pass data inn component props
  */
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const { loading, error, data } = await client.query({
     query: AllAnimations.query,
   });

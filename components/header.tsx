@@ -65,7 +65,7 @@ const Header: FC = () => {
           />
         </div>
         <div className="flex flex-row hidden sm:flex items-center ml-10">
-          <a href="/user/profile" className="flex items-center">
+          <a href="/users/1" className="flex items-center">
             <Image
               className="bg-green-400 rounded-full"
               loader={() => src}
