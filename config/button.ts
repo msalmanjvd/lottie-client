@@ -24,7 +24,7 @@ const navButtons: Array<ButtonProps> = [
   },
   {
     name: "My Animations",
-    path: "/users/profile",
+    path: "/users/1",
     icon: FolderIcon,
   },
   {
