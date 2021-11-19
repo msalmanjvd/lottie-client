@@ -12,7 +12,6 @@ COPY . .
 
 RUN npm run build
 
-COPY .env ./build
-EXPOSE 6060
+EXPOSE 3002
 
 CMD [ "npm", "start" ]
