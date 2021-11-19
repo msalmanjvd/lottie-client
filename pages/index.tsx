@@ -36,6 +36,7 @@ export async function getServerSideProps() {
       </div>
     );
   }
+
   return {
     props: {
       animations: data.getAllAnimations,

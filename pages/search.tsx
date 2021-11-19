@@ -42,7 +42,7 @@ function AnimationSearch({}): JSX.Element {
    */
   if (data) {
     return (
-      <div className=" z-1 sm:ml-64 -inset-x-0 z-1 w-full  sm:left-0  p-5 md:p-20 my-50   ">
+      <div className="absolute mt-32 h-screen w-screen -inset-x-0 z-1  sm:left-0  p-5 bg-gray-100 my-50   ">
         {data.getAnimationByTag ? (
           <>
             <AnimationsGrid animations={data.getAnimationByTag} />
@@ -51,7 +51,7 @@ function AnimationSearch({}): JSX.Element {
           <>
             {" "}
             <div className=" absolute  w-screen inset-0 flex  flex-wrap text-center items-center justify-center h-86 text-bold text-black mt-32 ">
-              <Error />
+              <Error message="No data with this tag!" />
             </div>
           </>
         )}

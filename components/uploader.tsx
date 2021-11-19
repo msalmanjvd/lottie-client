@@ -23,7 +23,11 @@ const Uploader = (props: any) => {
   const [addAnimation, { data, loading, error }] =
     useMutation(AnimationUplaoder);
 
-  if (data) router.push("/"); // if true then redirect to home page
+  if (data) {
+    window.location.replace("/");
+  }
+
+  // router.push("/"); // if true then redirect to home page
 
   const [BgColor, updateBgColor] = useState("transparent");
   const [TitleInput, UpdateTitleInput] = useState<string | "">("");
@@ -103,6 +107,7 @@ const Uploader = (props: any) => {
                   <LottiePlayer
                     src={props.data ? props.data : null}
                     controls={true}
+                    autoplay={true}
                     // height="560px"
                     radius="0"
                     bgColor={BgColor}
