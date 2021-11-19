@@ -18,10 +18,10 @@
   "include": [
     "next-env.d.ts",
     "**/*.ts",
-    "**/*.tsx",
-    "tailwind.config.js",
-    "components/headert.jsx",
-    "components/headertjsx"
+    "**/*.tsx"
+    // "tailwind.config.js",
+    // "components/headert.jsx",
+    // "components/headertjsx"
   ],
   "exclude": ["node_modules"]
 }
