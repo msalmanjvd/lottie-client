@@ -11,7 +11,6 @@ import { AllAnimations } from "../queries/index";
  * @returns all aniamtions and pass data inn component props
  */
 
-/**********************************ERROR HANDLING */
 export async function getStaticProps() {
   const { loading, error, data } = await client.query({
     query: AllAnimations.query,
