@@ -11,7 +11,7 @@ const AnimationsGrid = ({ animations }: AnimationData): JSX.Element => {
           <span className="text-main font-thin">Animations</span>{" "}
         </p>
       </div>
-      <div className=" grid w-screen grid-flow-rows bg-gray-100 inset-0 grid-cols-1 sm:grid-cols:3 md:grid-cols-3 lg:grid-cols-4  gap-10 p-10">
+      <div className=" grid w-screen grid-flow-rows bg-gray-100 inset-0 grid-cols-1 sm:grid-cols:3 md:grid-cols-4 lg:grid-cols-5  gap-10 p-10 sm:px-32">
         {/* <div className="flex  flex-col sm:flex-row flex-wrap items-center justify-center justify-items-center  w-full"> */}
         {animations.map((animation: any, index: number) => (
           <div
