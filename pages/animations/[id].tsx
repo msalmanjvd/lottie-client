@@ -58,6 +58,9 @@ const AnimationPost = () => {
   const [PickedColor, UpdatePickedColor] = useState<pickedType | null>(null);
   const [ReLoad, UpdateReload] = useState(false);
   const [Color, UpdateColor] = useState<string | null>(null);
+  const [ShowExtendedControls, UpdateShowExtendedControls] = useState<
+    boolean | false
+  >(false); // to show extend controls only when layers are populated
   const [BgColor, UpdateBgColor] = useState("transparent");
 
   const router = useRouter();
@@ -91,6 +94,7 @@ const AnimationPost = () => {
             if (CONTENT.layers.length) {
               console.log("layers alos updated");
               UpdateAnimationLayers(CONTENT.layers);
+              UpdateShowExtendedControls(true);
               const LottieData: any = LottieParser(CONTENT);
               UpdateColorsData(LottieData);
               UpdateAnimationData(CONTENT);
@@ -316,12 +320,11 @@ const AnimationPost = () => {
                 {" "}
                 <LottiePlayer
                   src={AnimationData ? AnimationData : ""}
-                  controls={true}
                   autoplay={true}
                   loop={true}
                   width="100%"
                   bgColor={BgColor}
-                  // radius="20px"
+                  extendedcontrols={ShowExtendedControls}
                 />
               </div>
               <div className=" flex flex-col flex-1 bg-gray-100 h-screen rounded-20 items-center text-center justify-center p-5 ">

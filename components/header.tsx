@@ -40,7 +40,6 @@ const Header: FC = () => {
       {" "}
       <div className="flex-initial h-full flex items-center ml-5">
         <Link href="/" passHref>
-          {/* <div className=" inset-x-0 ml-5 mr-10 sm:ml-10 cursor-pointer"> */}
           <Image
             className="cursor-pointer "
             loader={() => LottieLogo}
@@ -49,7 +48,6 @@ const Header: FC = () => {
             height={35}
             alt="Lottie Logo"
           />
-          {/* </div> */}
         </Link>
       </div>
       <div className="flex flex-row justify-end w-full">
