@@ -1,6 +1,8 @@
 import { FunctionComponent as FC } from "react";
 import Image from "next/image";
 import { HeartIcon, DownloadIcon } from "@heroicons/react/solid";
+import profilePic from "../public/dp.png";
+
 const UserCard: FC = (props: any) => {
   return (
     <>
@@ -10,8 +12,7 @@ const UserCard: FC = (props: any) => {
           <div className="bg-white flex flex-col justify-center items-center ">
             <Image
               className="reltive   bg-black rounded-full  "
-              loader={() => "../dp.png"}
-              src={"../dp.png"}
+              src={profilePic}
               alt="salman"
               width={100}
               height={100}

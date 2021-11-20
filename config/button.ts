@@ -28,7 +28,7 @@ const navButtons: Array<ButtonProps> = [
     icon: FolderIcon,
   },
   {
-    name: "Tags",
+    name: "Trending",
     path: "/comming-soon",
     icon: HashtagIcon,
   },

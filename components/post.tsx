@@ -36,7 +36,7 @@ const Post: FC<PostProps> = (props) => {
 
         <div className="px-5 pb-5 pt-5">
           {/* dummy action buttons */}
-          <div className=" rounded-b-2xl flex  justify-start items-center">
+          <div className=" rounded-b-2xxxl flex  justify-start items-center">
             {" "}
             <div className="justify-end ">
               <HeartIcon className="h-5 w-5 px-px-1 text-red-400 text-lg" />

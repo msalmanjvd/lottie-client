@@ -1,6 +1,6 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import client from "../libs/apollo";
+import Client from "../libs/apollo";
 import Loader from "./../components/loader";
 
 import AnimationsGrid from "../components/animations-grid";
@@ -12,7 +12,7 @@ import { AllAnimations } from "../queries/index";
  */
 
 export async function getServerSideProps() {
-  const { loading, error, data } = await client.query({
+  const { loading, error, data } = await Client.query({
     query: AllAnimations.query,
   });
 

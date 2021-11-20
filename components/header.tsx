@@ -6,10 +6,10 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import { useContext } from "react";
 import GlobalContext from "../config/global-context";
+import profilePic from "../public/dp.png";
 
 const Header: FC = () => {
   const Router = useRouter();
-  const src = "../dp.png";
 
   const LottieLogo =
     "https://static.lottiefiles.com/images/v3/lottiefiles-logo.svg";
@@ -73,8 +73,7 @@ const Header: FC = () => {
           >
             <Image
               className="bg-green-400 rounded-full"
-              loader={() => src}
-              src={"dp.png"}
+              src={profilePic}
               width={35}
               height={35}
               alt="salman"

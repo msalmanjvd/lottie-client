@@ -9,7 +9,7 @@ import { ArrowUpIcon, XIcon } from "@heroicons/react/solid";
 import { gql, useMutation } from "@apollo/client";
 
 const Uploader = (props: any) => {
-  const router = useRouter();
+  const Router = useRouter();
   const AnimationUplaoder = gql`
     mutation addnewAnimation($newpost: newpost!) {
       addnewAnimation(newpost: $newpost) {
@@ -24,7 +24,7 @@ const Uploader = (props: any) => {
     useMutation(AnimationUplaoder);
 
   if (data) {
-    window.location.replace("/");
+    Router.push("users/1");
   }
 
   // router.push("/"); // if true then redirect to home page
