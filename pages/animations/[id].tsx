@@ -76,7 +76,6 @@ const AnimationPost = () => {
 
   if (data) {
     if (AnimationData.length === 0) {
-      console.log("no data");
       lottieFileData();
     }
   }
@@ -84,7 +83,6 @@ const AnimationPost = () => {
    * @fetch file data
    */
   function lottieFileData() {
-    console.log("fiel server");
     try {
       fetch(`${FILE_SERVER}/${data.getAnimationById.fileUrl}`).then((data) => {
         data
@@ -92,7 +90,6 @@ const AnimationPost = () => {
           .then((data) => {
             const CONTENT = data;
             if (CONTENT.layers.length) {
-              console.log("layers alos updated");
               UpdateAnimationLayers(CONTENT.layers);
               UpdateShowExtendedControls(true);
               const LottieData: any = LottieParser(CONTENT);
@@ -104,12 +101,10 @@ const AnimationPost = () => {
             }
           })
           .catch((err) => {
-            console.log("Error", err);
             UpdateAnimationData([]);
           });
       });
     } catch (err) {
-      console.log("Error", err);
       UpdateAnimationData([]);
     }
   }
@@ -132,20 +127,20 @@ const AnimationPost = () => {
     UpdateColor(null);
 
     let oldLayerData = [...LayerData];
-    console.log("hex color is>>>", Color);
+
     let hexColor = Color;
     if (Color != null) {
       let selectedColor: Array<number> = hexRgb(Color, { format: "array" });
-      console.log("Slected color");
+
       selectedColor.length = 3;
-      console.log(selectedColor);
+
       selectedColor = selectedColor.map((c) => c / 155);
       if (FillIndex !== null) {
         oldLayerData[FillIndex].colors = selectedColor;
         UpdateLayerData(oldLayerData);
         if (res.status === 200) {
           // updateReload(true);
-          console.log("get file data now");
+
           lottieFileData();
         }
       }

@@ -2,7 +2,6 @@ import rgbHex from "rgb-hex";
 
 export default function ParseLottieFile(colors: Array<number>) {
   try {
-    console.log("Parser Colors", colors);
     let RGBColors: Array<number> = [];
     let opacity = colors[colors.length - 1];
     colors.length = 3;
@@ -15,7 +14,7 @@ export default function ParseLottieFile(colors: Array<number>) {
         return Math.trunc(Number(c) * 255);
       }
     });
-    console.log("Parser Colors", RGBColors);
+
     var str = RGBColors.join(", ");
 
     let hexColor = rgbHex(str);
